@@ -9,6 +9,7 @@ data1$FakeGAP <- data1$Global_active_power/500 #In order to mimic the exact prov
 # I created this Fake Global Active Power
 data1$Global_reactive_power <- as.numeric(data1$Global_reactive_power)
 data1$FakeGRP <- data1$Global_reactive_power/500 # Similarly I created fake Global Reactive Power
+data1$DateAdj <- as.POSIXct(paste(data1$Date,data1$Time),format="%d/%m/%Y %H:%M:%S")
 png("plot2.png",width=480,height = 480)
 b <- plot(x=data1$DateAdj,y=data1$FakeGAP,type="l",xlab="",ylab="Global Active Power (kilowatts)")
 dev.off()
